@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minchis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Minchis</h1>
+        <div><button onclick="getRandomMinchi()">Quiero más Minchis!!</button></div>
+        <img id="minchi-image" alt="Minchi">
+        <div><a href="./index2.html"><button>Pokedex</button></a></div>
+    </div>
+
+    <script>
+        function getRandomMinchi() {
+            fetch('https://api.thecatapi.com/v1/images/search', {
+                headers: {
+                    'x-api-key': 'live_a9nGGYyg64alrAMJKkPDFRkvlT2izRRfkKXGsLqfrosn6gPvrKP5v5PvTVNBbdhf'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                const minchiUrl = data[0].url;
+                const minchiImage = document.getElementById('minchi-image');
+                minchiImage.src = minchiUrl;
+            })
+            .catch(error => console.error('Error:', error));
+        }
+        getRandomMinchi(); // Mostrar un Minchi al cargar la página
+    </script>
+</body>
+</html>

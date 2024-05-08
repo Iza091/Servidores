@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="image/png" href="./img/poke-shadow.svg" />
+    <title>Pokedex Nacional</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            font-family: 'Arial', sans-serif;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        #searchPokemon {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            width: 250px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+
+        label[for="searchPokemon"] {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .pokemon-info {
+            font-size: 19px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px;
+            text-transform: capitalize;
+        }
+
+        img {
+            max-width: 200px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border: 4px solid #000100;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+       
+        #pokemon-number,
+        #pokemon-name {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            text-transform: capitalize;
+            margin-bottom: 10px;
+        }
+
+        #pokemon-types {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .pokemon-types span {
+            padding: 5px 10px;
+            color: #f2f2f2;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: block;
+            margin: 0 auto; /* Esto centra el botón horizontalmente */
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Pokédex Nacional</h1>
+        <div class="pokemon-info">
+            <label for="searchPokemon">Buscar Pokémon:</label>
+            <input type="text" id="searchPokemon" placeholder="Nombre del Pokémon">
+            <img id="pokemon-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png" alt="Ditto">
+            <p><strong>N°:</strong> <span id="pokemon-number"></span></p>
+            <p><strong>Nombre:</strong> <span id="pokemon-name"></span></p>
+            <p><strong>Tipos:</strong> <span id="pokemon-types" class="pokemon-types"></span></p>
+        </div>
+        <div><a id="cambio" href="./index.html"><button>Quiero ver minchis</button></a></div>
+    </div>
+
+    <script>
+        const spanishTranslations = {
+            normal: { name: 'Normal', color: '#757575' },
+            fire: { name: 'Fuego', color: '#fa1303' },
+            water: { name: 'Agua', color: '#00baf8' },
+            electric: { name: 'Eléctrico', color: '#f8d305' },
+            grass: { name: 'Planta', color: '#52964a' },
+            ice: { name: 'Hielo', color: '#67bdda' },
+            fighting: { name: 'Lucha', color: '#e8750a' },
+            poison: { name: 'Veneno', color: '#8f16a4' },
+            ground: { name: 'Tierra', color: '#a9813c' },
+            flying: { name: 'Volador', color: '#59cdaa' },
+            psychic: { name: 'Psíquico', color: '#c407bb' },
+            bug: { name: 'Bicho', color: '#50b452' },
+            rock: { name: 'Roca', color: '#76522e' },
+            ghost: { name: 'Fantasma', color: '#521d56' },
+            dragon: { name: 'Dragón', color: '#6e098d' },
+            dark: { name: 'Siniestro', color: '#434041' },
+            steel: { name: 'Acero', color: '#4c4f4f' },
+            fairy: { name: 'Hada', color: '#bd41a9' }
+            // Agrega más traducciones según sea necesario
+        };
+
+        function translateType(type) {
+            return spanishTranslations[type] || type;
+        }
+
+        document.getElementById('searchPokemon').addEventListener('input', function () {
+            const searchValue = this.value.toLowerCase();
+
+            fetch(`https://pokeapi.co/api/v2/pokemon/${searchValue}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    document.getElementById('pokemon-number').textContent = data.id;
+                    document.getElementById('pokemon-name').textContent = data.name;
+
+                    const typesContainer = document.getElementById('pokemon-types');
+                    typesContainer.innerHTML = '';
+
+                    const types = data.types.map(type => {
+                        const translatedType = spanishTranslations[type.type.name];
+                        return `<span style="background-color: ${translatedType.color};">${translatedType.name}</span>`;
+                    }).join(', ');
+
+                    typesContainer.innerHTML = types;
+
+                    const imageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${data.id}.png`;
+                    const img = document.getElementById('pokemon-image');
+                    img.src = imageUrl;
+                    img.width = 200;
+                    img.height = 200;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById('pokemon-info').innerHTML = `<p>No se encontró: ${searchValue}</p>`;
+                });
+        });
+    </script>
+</body>
+
+</html>
