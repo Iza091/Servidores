@@ -13,16 +13,20 @@ Después de instalar Apache, puedes realizar algunas configuraciones básicas:
 
 - **Directorio raíz de documentos**: El directorio raíz de documentos de Apache es donde se almacenan los archivos del sitio web. Por defecto, está ubicado en `/var/www/html`.
 
-## Archivos de ejemplo
+## Páginas de ejemplo
 
-En este repositorio, encontrarás dos archivos de ejemplo:
+En este repositorio, encontrarás varias páginas de ejemplo organizadas en carpetas:
 
-- **index.html**: Un archivo HTML básico que se puede utilizar como página principal del sitio web.
-- **index2.html**: Otro archivo HTML que puede ser una página secundaria o de prueba.
+1. **Minchis**: Una página que muestra imágenes de gatitos (minchis).
+2. **Pokédex**: Una página que muestra información sobre Pokémon.
+3. **Piedra Papel Tijera Lagarto Spock**: Una página que implementa el juego Piedra Papel Tijera Lagarto Spock.
 
-## Acceso al servidor web
+## Acceso a las páginas
 
-Una vez configurado, puedes acceder al servidor web Apache desde un navegador web ingresando la dirección IP del servidor o el nombre de dominio si está configurado.
+Una vez configurado, puedes acceder a cada página desde un navegador web ingresando la dirección IP del servidor seguida del nombre de la carpeta donde se encuentra la página correspondiente, por ejemplo:
+- `http://<dirección_ip>/minchis`
+- `http://<dirección_ip>/pokedex`
+- `http://<dirección_ip>/piedrapapeltijeralagartospock`
 
 ## Mantenimiento y diagnóstico
 
@@ -30,4 +34,4 @@ Para administrar y diagnosticar Apache, puedes utilizar herramientas como el reg
 
 ---
 
-Este README proporciona una introducción básica a la instalación y configuración de Apache en un servidor Ubuntu. Se recomienda consultar la documentación oficial de Apache y Ubuntu para obtener información más detallada sobre configuraciones avanzadas y opciones de administración.
+Este README proporciona una introducción básica a la instalación y configuración de Apache en un servidor Ubuntu, así como información sobre las páginas de ejemplo incluidas en este repositorio. Se recomienda consultar la documentación oficial de Apache y Ubuntu para obtener información más detallada sobre configuraciones avanzadas y opciones de administración.
