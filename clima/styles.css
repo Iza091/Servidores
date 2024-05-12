@@ -1,0 +1,109 @@
+/* Estilos generales */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+
+.container {
+    max-width: 600px; /* Limitar el ancho máximo para una mejor legibilidad */
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative; /* Permitir la posición absoluta de la hora */
+}
+
+header h1 {
+    color: #333;
+}
+
+.main {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Formulario de búsqueda */
+.location {
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="text"] {
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+button[type="submit"] {
+    padding: 12px;
+    background-color: #2f00ff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button[type="submit"]:hover {
+    background-color: #5a00b3;
+}
+
+/* Información del clima */
+.weather-info {
+    
+    margin-bottom: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+}
+
+.weather-info h2 {
+    color: #333;
+    text-align: center;
+}
+
+.weather-info p {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.weather-info img {
+    max-width: 100px;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* Información de la hora */
+.time-info {
+    color: #333;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    position: relative;
+    padding: 5%;
+    
+}

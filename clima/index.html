@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clima</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><span class="weather-icon">🌤️</span> </h1>
+
+        </header>
+        
+        <main>
+            <div class="location">
+                <form id="weatherForm">
+                    <input type="text" id="cityInput" placeholder="Ciudad">
+                    <input type="text" id="countryInput" placeholder="País">
+                    <button type="submit"> Buscar </button>
+                </form>
+            </div>
+            
+            <div class="time-info">
+                <p id="time"> Hora Local:</p>
+            </div>
+
+            <div class="weather-info">
+                <!-- Se llenará con los datos del clima después de hacer clic en el botón de búsqueda -->
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

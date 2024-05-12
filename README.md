@@ -24,6 +24,7 @@ En este repositorio, encontrarás varias páginas de ejemplo organizadas en carp
 ## Acceso a las páginas
 
 Una vez configurado, puedes acceder a cada página desde un navegador web ingresando la dirección IP del servidor seguida del nombre de la carpeta donde se encuentra la página correspondiente, por ejemplo:
+- `http://<dirección_ip>/clima/index.html`
 - `http://<dirección_ip>/minchis/index.html`
 - `http://<dirección_ip>/pokedex/index.html`
 - `http://<dirección_ip>/piedrapapeltijeralagartospock/index.html`
