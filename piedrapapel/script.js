@@ -13,54 +13,54 @@ function playGame() {
       (player1 === "3" && player2 === "1")
     ) {
       
-      result.textContent = "Piedra 🪨 aplasta Tijera ✂️";
+      result.textContent = "Piedra  aplasta Tijera ";
     } else if (
       (player1 === "2" && player2 === "1") || 
       (player1 === "1" && player2 === "2")
   
     ) {
       
-      result.textContent = "Papel 📄 cubre Piedra 🪨";
+      result.textContent = "Papel  cubre Piedra ";
     } else if (
       (player1 === "2" && player2 === "5") ||
       (player1 === "5" && player2 === "2")
     ) {
-      result.textContent = "Papel 📄 desautoriza Spock 🖖🏻";
+      result.textContent = "Papel  desautoriza Spock ";
     } else if (
       (player1 === "3" && player2 === "2") ||
       (player1 === "2" && player2 === "3")
     ) {
-      result.textContent = "Tijera ✂️ corta Papel 📄";
+      result.textContent = "Tijera  corta Papel ";
     } else if (
       (player1 === "3" && player2 === "4") ||
       (player1 === "4" && player2 === "3")
     ) {
-      result.textContent = "Tijera ✂️ decapita Lagarto 🦎";
+      result.textContent = "Tijera  decapita Lagarto ";
     } else if (
       (player1 === "4" && player2 === "5") ||
       (player1 === "5" && player2 === "4")
     ) {
-      result.textContent = "Lagarto 🦎 envenena Spock 🖖🏻";
+      result.textContent = "Lagarto  envenena Spock ";
     } else if (
       (player1 === "4" && player2 === "2") ||
       (player1 === "2" && player2 === "4")
     ) {
-      result.textContent = "Lagarto 🦎 debora Papel 📄";
+      result.textContent = "Lagarto  debora Papel ";
     } else if (
       (player1 === "5" && player2 === "1") ||
       (player1 === "1" && player2 === "5")
     ) {
-      result.textContent = "Spock 🖖🏻 vaporiza Piedra 🪨";
+      result.textContent = "Spock  vaporiza Piedra ";
     } else if (
       (player1 === "4" && player2 === "1") ||
       (player1 === "1" && player2 === "4")
     ) {
-      result.textContent = "Piedra 🪨 aplasta Lagarto 🦎";
+      result.textContent = "Piedra  aplasta Lagarto ";
     } else if (
       (player1 === "5" && player2 === "3") ||
       (player1 === "3" && player2 === "5")
     ) {
-      result.textContent = "Spock 🖖🏻 rompe Tijera ✂️";
+      result.textContent = "Spock  rompe Tijera ";
     } else {
       result.textContent = "-";
     }
