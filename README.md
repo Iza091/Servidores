@@ -27,7 +27,7 @@ Una vez configurado, puedes acceder a cada página desde un navegador web ingres
 - `http://<dirección_ip>/clima/index.html`
 - `http://<dirección_ip>/minchis/index.html`
 - `http://<dirección_ip>/pokedex/index.html`
-- `http://<dirección_ip>/piedrapapeltijeralagartospock/index.html`
+- `http://<dirección_ip>/piedrapapel/index.html`
 
 ## Mantenimiento y diagnóstico
 
